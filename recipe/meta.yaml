@@ -1,6 +1,6 @@
 {% set name = "tidy-html5" %}
-{% set version = "5.7.28" %}
-{% set sha = "5caa2c769204f506e24ea4986a45abe23f71d14f0fe968314f20065f342ffdba" %}
+{% set version = "5.8.0" %}
+{% set sha = "2fc78c4369cde9a80f4ae3961880bd003ac31e8b160f6b9422645bab3be5a6cf" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://github.com/htacg/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: {{sha}}
+  sha256: {{ sha }}
 
 build:
   skip: true  # [win]
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -30,7 +30,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: README/LICENSE.txt
-  summary: 'The granddaddy of HTML tools, with support for modern standards.'
+  summary: The granddaddy of HTML tools, with support for modern standards.
   description: |
     Tidy tidies HTML and XML. It can tidy your documents by itself, and
     developers can easily integrate its features into even more powerful tools.
