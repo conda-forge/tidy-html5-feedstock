@@ -1,5 +1,5 @@
 cd build/cmake
-cmake ../.. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${PREFIX}
+cmake ${CMAKE_ARGS} ../.. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${PREFIX}
 
 make
 make install
