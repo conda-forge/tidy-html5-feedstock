@@ -1,5 +1,5 @@
 {% set name = "tidy-html5" %}
-{% set version = "5.9.14-next" %}
+{% set version = "5.9.14" %}
 {% set sha = "83cc9d9cdfa59bfe400dc745dea14eb1e1be4ca088facfb911eac8b78e75f2b4" %}
 
 package:
@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/htacg/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/htacg/{{ name }}/archive/{{ version }}-next.tar.gz
   sha256: {{ sha }}
 
 build:
