@@ -1,21 +1,22 @@
 {% set name = "tidy-html5" %}
-{% set version = "5.8.0" %}
-{% set sha = "59c86d5b2e452f63c5cdb29c866a12a4c55b1741d7025cf2f3ce0cde99b0660e" %}
+{% set version = "5.9.14" %}
+{% set sha = "83cc9d9cdfa59bfe400dc745dea14eb1e1be4ca088facfb911eac8b78e75f2b4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/htacg/{{ name }}/archive/{{ version }}.tar.gz
+  url: https://github.com/htacg/{{ name }}/archive/{{ version }}-next.tar.gz
   sha256: {{ sha }}
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make
