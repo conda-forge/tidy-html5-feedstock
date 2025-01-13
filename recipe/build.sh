@@ -30,7 +30,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     CXX=${CROSS_CXX}
     LD=${CROSS_LD}
 
-    sed -i -e "s,COMMAND \${CMAKE_CURRENT_BINARY_DIR}/\${LIB_NAME},COMMAND ${BUILD_PREFIX}/bin/tidy,g" ${SRC_DIR}/build/cmake/CMakeLists.txt
+    sed -i -e "s,COMMAND \${CMAKE_CURRENT_BINARY_DIR}/\${LIB_NAME},COMMAND ${BUILD_PREFIX}/bin/tidy,g" ${SRC_DIR}/CMakeLists.txt
 fi
 
 
