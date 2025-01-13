@@ -18,7 +18,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - sed
+    - sed  # [unix]
 
 test:
   commands:
