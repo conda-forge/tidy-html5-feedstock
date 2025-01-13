@@ -18,7 +18,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     CXX=${CXX//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
-    cmake -S ${SRC_DIR}/build/cmake -B build_host \
+    cmake -S . -B build_host \
         -DCMAKE_BUILD_TYPE=Release \
         ${BOOTSTRAP_CMAKE_ARGS}
     cmake --build build_host
@@ -29,12 +29,13 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     CC=${CROSS_CC}
     CXX=${CROSS_CXX}
     LD=${CROSS_LD}
+
+    sed -i -e "s,COMMAND \${CMAKE_CURRENT_BINARY_DIR}/\${LIB_NAME},COMMAND ${BUILD_PREFIX}/bin/tidy,g" ${SRC_DIR}/build/cmake/CMakeLists.txt
 fi
 
-sed -i -e "s,COMMAND \${CMAKE_CURRENT_BINARY_DIR}/\${LIB_NAME},COMMAND ${BUILD_PREFIX}/bin/tidy,g" ${SRC_DIR}/CMakeLists.txt
 
-cmake -S ${SRC_DIR}/build/cmake -B build \
+cmake -S . -B build_target \
     -DCMAKE_BUILD_TYPE=Release \
     ${CMAKE_ARGS}
-cmake --build build
-cmake --install build
+cmake --build build_target
+cmake --install build_target
