@@ -1,17 +1,15 @@
-{% set name = "tidy-html5" %}
 {% set version = "5.9.14" %}
-{% set sha = "83cc9d9cdfa59bfe400dc745dea14eb1e1be4ca088facfb911eac8b78e75f2b4" %}
 
 package:
-  name: {{ name|lower }}
+  name: tidy-html5
   version: {{ version }}
 
 source:
-  url: https://github.com/htacg/{{ name }}/archive/{{ version }}-next.tar.gz
-  sha256: {{ sha }}
+  url: https://github.com/htacg/tidy-html5/archive/{{ version }}-next.tar.gz
+  sha256: 83cc9d9cdfa59bfe400dc745dea14eb1e1be4ca088facfb911eac8b78e75f2b4
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,6 +18,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
+    - sed  # [unix]
 
 test:
   commands:
@@ -28,7 +27,6 @@ test:
 about:
   home: http://www.html-tidy.org/
   license: MIT
-  license_family: MIT
   license_file: README/LICENSE.txt
   summary: The granddaddy of HTML tools, with support for modern standards.
   description: |
@@ -41,3 +39,4 @@ extra:
   recipe-maintainers:
     - asford
     - thewchan
+    - danielnachun
