@@ -19,6 +19,7 @@ if [[ ${CONDA_BUILD_CROSS_COMPILATION:-0} == 1 ]]; then
     LD="${LD//${CONDA_TOOLCHAIN_HOST}/${CONDA_TOOLCHAIN_BUILD}}"
 
     cmake -S . -B build_host \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
         -DCMAKE_BUILD_TYPE=Release \
         ${BOOTSTRAP_CMAKE_ARGS}
     cmake --build build_host
@@ -35,6 +36,7 @@ fi
 
 
 cmake -S . -B build_target \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release \
     ${CMAKE_ARGS}
 cmake --build build_target
